@@ -1,4 +1,13 @@
 import express from 'express';
-// var express = require('express');
 
-console.log(express);
+const app = express();
+
+// set up template engine
+app.set('view engine', 'ejs');
+
+// static files
+app.use(express.static('./public'));
+
+// listen to port
+app.listen(3000);
+console.log('You are listening to port 3000');
