@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 
-const data = [
+let data = [
   {item: 'slurp and glurp'},
   {item: 'munch a bunch'},
   {item: 'snooze and cruise'},
@@ -17,7 +17,10 @@ export default function (app) {
     res.json(data);
   });
 
-  app.delete('/todo', function (req, res) {
-
+  app.delete('/todo/:item', function (req, res) {
+    data = data.filter(todo => (
+      todo.item.replace(/ /g, '-') !== req.params.item
+    ));
+    res.json(data);
   });
 }
