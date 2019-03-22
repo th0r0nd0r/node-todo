@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $('form').on('submit', function(){
+    console.log("faowifjapowifjpaowidfjpawodifj");
 
       var item = $('form input');
       var todo = {item: item.val()};
@@ -10,9 +11,11 @@ $(document).ready(function(){
         url: '/todo',
         data: todo,
         success: function(data){
+          console.log("success!");
           //do something with the data via front-end framework
           location.reload();
-        }
+        },
+        error: console.log("error up in hur")
       });
 
       return false;
